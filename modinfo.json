@@ -1,0 +1,22 @@
+{
+  "author": "wondible",
+  "build": "80462",
+  "category": ["in-game", "ui"],
+  "context": "client",
+  "date": "2015/05/03",
+  "dependencies": [
+    "com.wondible.pa.live_game_input_refactor"
+  ],
+  "description": "Commands are registered immediately instead of waiting to see if it is an area command.",
+  "display_name": "Fast Click",
+  "forum": null,
+  "identifier": "com.wondible.pa.fast_click",
+  "priority": 100,
+  "scenes": {
+    "live_game": [
+      "coui://ui/mods/fast_click/fast_click.js"
+    ]
+  },
+  "signature": "not yet implemented",
+  "version": "0.1.0"
+}
