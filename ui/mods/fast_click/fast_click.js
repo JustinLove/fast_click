@@ -4,38 +4,29 @@
     if (model.celestialControlActive()) return false
 
     var holodeck = mdevent.holodeck
-    var startx = mdevent.offsetX;
-    var starty = mdevent.offsetY;
     var append = model.shouldAppendContext(mdevent)
 
-    holodeck.unitGo(startx, starty, append)
+    holodeck.unitGo(mdevent.offsetX, mdevent.offsetY, append)
       .then(model.playCommandSound(mdevent, null))
+
     model.mode('default');
 
     return true;
   }
 
-  model.commandModeDown = function(mdevent, command, targetable) {
-    engine.call('camera.cameraMaybeSetFocusPlanet');
+  model.commandModeDown = function(mdevent, command) {
+    api.camera.maybeSetFocusPlanet()
+
     var holodeck = mdevent.holodeck
+    var append = model.shouldAppendCommand(mdevent)
+
+    holodeck.unitCommand(command, mdevent.offsetX, mdevent.offsetY, append)
+      .then(model.playCommandSound(mdevent, command));
+
     model.watchForEnd(mdevent,
                       model.shouldExitModeCommand,
                       model.cmdQueueCount,
                       model.endCommandMode)
-    var append = model.shouldAppendCommand(mdevent)
-    var exit = model.shouldExitModeCommand(mdevent)
-
-    if (model.hasWorldHoverTarget() && targetable) {
-      api.unit.targetCommand(command, model.worldHoverTarget(), append)
-        .then(model.playCommandSound(mdevent, command));
-    } else {
-      holodeck.unitCommand(command, mdevent.offsetX, mdevent.offsetY, append)
-        .then(model.playCommandSound(mdevent, command));
-    }
-
-    if (exit)
-      model.endCommandMode();
-
     return true
   }
 })()
