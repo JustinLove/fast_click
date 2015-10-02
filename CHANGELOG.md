@@ -1,8 +1,10 @@
 # Fast Click
 
-## 0.1.2
+## 0.2.0
 
 - lgir namespaced
+- ALT to escape to full area-capable command
+- patrol command uses regular area-capable mouseup command
 
 ## 0.1.1
 

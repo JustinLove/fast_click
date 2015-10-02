@@ -14,7 +14,12 @@
     return true;
   }
 
+  var commandModeDownWithArea = lgir.commandModeDown
   lgir.commandModeDown = function(mdevent, command) {
+    if (mdevent.altKey || command == 'patrol') {
+      return commandModeDownWithArea(mdevent, command)
+    }
+
     api.camera.maybeSetFocusPlanet()
 
     var holodeck = mdevent.holodeck
