@@ -1,30 +1,30 @@
 (function() {
-  model.contextualActionDown = function(mdevent) {
+  lgir.contextualActionDown = function(mdevent) {
     if (model.showTimeControls()) return false
     if (model.celestialControlActive()) return false
 
     var holodeck = mdevent.holodeck
-    var append = model.shouldAppendContext(mdevent)
+    var append = lgir.shouldAppendContext(mdevent)
 
     holodeck.unitGo(mdevent.offsetX, mdevent.offsetY, append)
-      .then(model.playCommandSound(mdevent, null))
+      .then(lgir.playCommandSound(mdevent, null))
 
     model.mode('default');
 
     return true;
   }
 
-  model.commandModeDown = function(mdevent, command) {
+  lgir.commandModeDown = function(mdevent, command) {
     api.camera.maybeSetFocusPlanet()
 
     var holodeck = mdevent.holodeck
-    var append = model.shouldAppendCommand(mdevent)
+    var append = lgir.shouldAppendCommand(mdevent)
 
     holodeck.unitCommand(command, mdevent.offsetX, mdevent.offsetY, append)
-      .then(model.playCommandSound(mdevent, command));
+      .then(lgir.playCommandSound(mdevent, command));
 
-    model.watchForEnd(mdevent,
-                      model.shouldExitModeCommand,
+    lgir.watchForEnd(mdevent,
+                      lgir.shouldExitModeCommand,
                       model.cmdQueueCount,
                       model.endCommandMode)
     return true
