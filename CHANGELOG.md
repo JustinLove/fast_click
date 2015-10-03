@@ -1,5 +1,9 @@
 # Fast Click
 
+## 0.2.1
+
+- Release, forum url
+
 ## 0.2.0
 
 - lgir namespaced

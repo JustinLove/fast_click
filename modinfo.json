@@ -3,13 +3,13 @@
   "build": "88288",
   "category": ["in-game", "ui"],
   "context": "client",
-  "date": "2015/10/01",
+  "date": "2015/10/03",
   "dependencies": [
     "com.wondible.pa.live_game_input_refactor"
   ],
   "description": "Commands are registered immediately instead of waiting to see if it is an area command.",
   "display_name": "Fast Click",
-  "forum": null,
+  "forum": "https://forums.uberent.com/threads/rel-fast-click.70615/",
   "identifier": "com.wondible.pa.fast_click",
   "priority": 100,
   "scenes": {
@@ -18,5 +18,5 @@
     ]
   },
   "signature": "not yet implemented",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
