@@ -16,7 +16,7 @@
 
   var commandModeDownWithArea = lgir.commandModeDown
   lgir.commandModeDown = function(mdevent, command) {
-    if (mdevent.altKey || command == 'patrol') {
+    if (mdevent.altKey || commandKeyUpExpected) {
       return commandModeDownWithArea(mdevent, command)
     }
 
@@ -34,4 +34,25 @@
                       model.endCommandMode)
     return true
   }
+
+  var commandKeyUpExpected = false
+
+  var fastClickCommandKey = function(command, i) {
+    return function(kdevent) {
+      model.setCommandIndex(i)
+      commandKeyUpExpected = kdevent.which
+    }
+  }
+
+  for (var i = 0; i < model.commands().length; ++i) {
+    var command = model.commands()[i];
+    action_sets.gameplay['command_mode_' + command] = 
+      fastClickCommandKey(command, i)
+  }
+
+  $(document).keyup(function(kuevent) {
+    if (kuevent.which == commandKeyUpExpected) {
+      commandKeyUpExpected = false
+    }
+  })
 })()

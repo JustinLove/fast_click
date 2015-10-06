@@ -1,8 +1,8 @@
 # Fast Click
 
-Commands are registered immediately instead of waiting to see if it is an area command - which means you have no area commands.  Hold ALT to escape back to standard commands.
+Commands are registered immediately instead of waiting to see if it is an area command - which means you have no area commands. Hold ALT or continue holding the command mode key to escape to the area-capable version.
 
-Not applied to build mode, in order to preserve lines, areas, and facing.  Patrol command is also excepted, since I almost universally use the area version.  Feedback welcome.
+Not applied to build mode, in order to preserve lines, areas, and facing.
 
 ## Dependencies
 

@@ -1,5 +1,10 @@
 # Fast Click
 
+## 1.0.0
+
+- Can hold command mode key for area capable.
+- Remove patrol special case
+
 ## 0.2.1
 
 - Release, forum url
