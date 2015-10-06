@@ -5,6 +5,7 @@
 - Can hold command mode key for area capable.
 - Remove patrol special case
 - ALT escape for contextual action
+- Special case move command to contextual action to support Cover The Line
 
 ## 0.2.1
 

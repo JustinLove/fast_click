@@ -1,4 +1,8 @@
 (function() {
+  var LeftButton = 0
+  var MiddleButton = 1
+  var RightButton = 2
+
   var contextualActionDownWithArea = lgir.contextualActionDown
   lgir.contextualActionDown = function(mdevent) {
     if (model.showTimeControls()) return false
@@ -38,6 +42,16 @@
                       model.cmdQueueCount,
                       model.endCommandMode)
     return true
+  }
+
+  lgir.holodeckModeMouseDown.command_move = function(mdevent) {
+    if (mdevent.button === LeftButton || mdevent.button === RighButton) {
+      if (mdevent.altKey || commandKeyUpExpected) {
+        return contextualActionDownWithArea(mdevent)
+      } else {
+        return lgir.commandModeDown(mdevent, 'move')
+      }
+    }
   }
 
   var commandKeyUpExpected = false
