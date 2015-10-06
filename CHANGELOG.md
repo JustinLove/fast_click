@@ -4,6 +4,7 @@
 
 - Can hold command mode key for area capable.
 - Remove patrol special case
+- ALT escape for contextual action
 
 ## 0.2.1
 

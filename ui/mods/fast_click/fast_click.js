@@ -1,7 +1,12 @@
 (function() {
+  var contextualActionDownWithArea = lgir.contextualActionDown
   lgir.contextualActionDown = function(mdevent) {
     if (model.showTimeControls()) return false
     if (model.celestialControlActive()) return false
+
+    if (mdevent.altKey) {
+      return contextualActionDownWithArea(mdevent)
+    }
 
     var holodeck = mdevent.holodeck
     var append = lgir.shouldAppendContext(mdevent)
