@@ -26,7 +26,11 @@
   var commandModeDownWithArea = lgir.commandModeDown
   lgir.commandModeDown = function(mdevent, command) {
     if (mdevent.altKey || commandKeyUpExpected) {
-      return commandModeDownWithArea(mdevent, command)
+      if (command == 'move') {
+        return contextualActionDownWithArea(mdevent)
+      } else {
+        return commandModeDownWithArea(mdevent, command)
+      }
     }
 
     api.camera.maybeSetFocusPlanet()
@@ -42,16 +46,6 @@
                       model.cmdQueueCount,
                       model.endCommandMode)
     return true
-  }
-
-  lgir.holodeckModeMouseDown.command_move = function(mdevent) {
-    if (mdevent.button === LeftButton || mdevent.button === RighButton) {
-      if (mdevent.altKey || commandKeyUpExpected) {
-        return contextualActionDownWithArea(mdevent)
-      } else {
-        return lgir.commandModeDown(mdevent, 'move')
-      }
-    }
   }
 
   var commandKeyUpExpected = false
